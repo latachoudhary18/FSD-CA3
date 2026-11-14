@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1001",
+    "name": "SSD NVMe 1TB",
+    "quantity": 10,
+    "price": 5400
+  },
+  {
+    "id": "1002",
+    "name": "DDR5 RAM 16GB",
+    "quantity": 6,
+    "price": 4200
+  },
+  {
+    "id": "4225",
+    "name": "Ethernet Switch",
+    "quantity": 8,
+    "price": 3200
+  }
+]

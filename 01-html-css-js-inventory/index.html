@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program 1 - Inventory Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Inventory Manager</h1>
+      <p>HTML5, CSS3 & Vanilla ES6+ (Fetch API, Async/Await, DOM)</p>
+    </header>
+
+    <!-- Add Item Form -->
+    <section class="card">
+      <h2>Add New Inventory Item</h2>
+      <form id="inventoryForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="itemName">Item Name *</label>
+            <input type="text" id="itemName" placeholder="e.g., Raspberry Pi 5" required />
+          </div>
+          <div class="form-group">
+            <label for="itemCategory">Category *</label>
+            <select id="itemCategory" required>
+              <option value="">-- Select Category --</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Networking">Networking</option>
+              <option value="Peripherals">Peripherals</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="itemQuantity">Quantity *</label>
+            <input type="number" id="itemQuantity" min="1" placeholder="e.g., 15" required />
+          </div>
+          <div class="form-group">
+            <label for="itemPrice">Unit Price (₹) *</label>
+            <input type="number" id="itemPrice" min="1" step="0.01" placeholder="e.g., 6500" required />
+          </div>
+        </div>
+
+        <p id="formError" class="error-msg"></p>
+        <button type="submit" class="btn-primary">Add Item (POST)</button>
+      </form>
+    </section>
+
+    <!-- Search & Filter Controls -->
+    <section class="card controls">
+      <input type="text" id="searchInput" placeholder="Search by item name..." />
+      <select id="categoryFilter">
+        <option value="ALL">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Networking">Networking</option>
+        <option value="Peripherals">Peripherals</option>
+      </select>
+      <button id="refreshBtn" class="btn-secondary">Reload API Data (GET)</button>
+    </section>
+
+    <!-- HTTP JSON Log Box -->
+    <section class="card log-box">
+      <h3>Last HTTP Request / JSON Response Log</h3>
+      <pre id="apiLog">Initializing...</pre>
+    </section>
+
+    <!-- Dynamic Inventory Table -->
+    <section class="card">
+      <h2>Current Stock (<span id="itemCount">0</span> items)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price (₹)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryTableBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
